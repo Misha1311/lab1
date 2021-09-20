@@ -94,7 +94,14 @@ public class Main {
         }
 
         for(int j = 0; j< countworker; j++) {
-            if ((worker.Year[j] <= date.getYear() + 1900) &&(worker.Year[j]>=date.getYear() + 1899) && (date.getMonth() + 1 <= worker.Month[j]) && (date.getDay() >= worker.Day[j])) {
+            if ((worker.Year[j] == date.getYear() + 1900) && (worker.Month[j] <= date.getMonth() + 1) && (worker.Day[j] <= date.getDate())) {
+                System.out.println("Фамилия: " + worker.Surname[j]);
+                System.out.println("Специальность: " + worker.Position[j]);
+                System.out.println("Дата подписания контракта: " + worker.Day[j] + " " + worker.Month[j] + " " + worker.Year[j]);
+                System.out.println("Срок действия контракта: " + worker.Term[j]);
+                System.out.println("Оклад: " + worker.Salary[j]);
+            }
+            if ((worker.Year[j] == date.getYear() + 1899) && (worker.Month[j] >= date.getMonth() + 1) && (worker.Day[j] >= date.getDate())) {
                 System.out.println("Фамилия: " + worker.Surname[j]);
                 System.out.println("Специальность: " + worker.Position[j]);
                 System.out.println("Дата подписания контракта: " + worker.Day[j] + " " + worker.Month[j] + " " + worker.Year[j]);
