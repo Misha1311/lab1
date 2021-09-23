@@ -101,7 +101,7 @@ public class Main {
                 System.out.println("Срок действия контракта: " + worker.Term[j]);
                 System.out.println("Оклад: " + worker.Salary[j]);
             }
-            if ((worker.Year[j] == date.getYear() + 1899) && (worker.Month[j] >= date.getMonth() + 1) && (worker.Day[j] >= date.getDate())) {
+            else if ((worker.Year[j] == date.getYear() + 1899) && (worker.Month[j] >= date.getMonth() + 1) && (worker.Day[j] >= date.getDate())) {
                 System.out.println("Фамилия: " + worker.Surname[j]);
                 System.out.println("Специальность: " + worker.Position[j]);
                 System.out.println("Дата подписания контракта: " + worker.Day[j] + " " + worker.Month[j] + " " + worker.Year[j]);
