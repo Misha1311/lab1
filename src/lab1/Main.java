@@ -31,37 +31,38 @@ public class Main {
 
     public static void task1() {
         GregorianCalendar gcalendar = new GregorianCalendar();
-        Person person = new Person();
         Scanner num = new Scanner(System.in);
         Scanner slovo = new Scanner(System.in);
         int count = 0;
         int countstudent = 0;
         System.out.print("Введите количество студентов: ");
         countstudent = num.nextInt();
+        Person[] person = new Person[countstudent];
         for (int i = 0; i < countstudent; i++){
+            person[i] = new Person();
             System.out.print("Введите фамилию: ");
-            person.Surname[i] = slovo.nextLine();
+            person[i].Surname = slovo.nextLine();
             System.out.print("Введите специальность: ");
-            person.Speciality[i] = slovo.nextLine();
+            person[i].Speciality = slovo.nextLine();
             System.out.print("Введите год поступления: ");
-            person.Year[i] = num.nextInt();
+            person[i].Year = num.nextInt();
             System.out.print("Введите физику: ");
-            person.Physic[i] = num.nextInt();
+            person[i].Physic = num.nextInt();
             System.out.print("Введите математику: ");
-            person.Math[i] = num.nextInt();
+            person[i].Math = num.nextInt();
             System.out.print("Введите историю: ");
-            person.History[i] = num.nextInt();
+            person[i].History = num.nextInt();
         }
 
         for(int j = 0; j< countstudent; j++) {
-            if (person.Year[j] <= gcalendar.get(Calendar.YEAR) - 3) {
+            if (person[j].Year <= gcalendar.get(Calendar.YEAR) - 3) {
                 count++;
-                System.out.println("Фамилия: " + person.Surname[j]);
-                System.out.println("Специальность: " + person.Speciality[j]);
-                System.out.println("Год поступления: " + person.Year[j]);
-                System.out.println("Оценка по физике: " + person.Physic[j]);
-                System.out.println("Оценка по математике: " + person.Math[j]);
-                System.out.println("Оценка по историе: " + person.History[j]);
+                System.out.println("Фамилия: " + person[j].Surname);
+                System.out.println("Специальность: " + person[j].Speciality);
+                System.out.println("Год поступления: " + person[j].Year);
+                System.out.println("Оценка по физике: " + person[j].Physic);
+                System.out.println("Оценка по математике: " + person[j].Math);
+                System.out.println("Оценка по историе: " + person[j].History);
             }
         }
         System.out.println("Студентов учашихся на 3 курсе и выше: " + count);
@@ -69,44 +70,45 @@ public class Main {
 
     public static void task2(){
         Date date = new Date();
-        Worker worker = new Worker();
         Scanner num = new Scanner(System.in);
         Scanner slovo = new Scanner(System.in);
         int countworker = 0;
         System.out.print("Введите количество работников: ");
         countworker = num.nextInt();
+        Worker[] worker = new Worker[countworker];
         for (int i = 0; i < countworker; i++){
+            worker[i] = new Worker();
             System.out.print("Введите фамилию работника: ");
-            worker.Surname[i] = slovo.nextLine();
+            worker[i].Surname = slovo.nextLine();
             System.out.print("Введите должность работника: ");
-            worker.Position[i] = slovo.nextLine();
+            worker[i].Position = slovo.nextLine();
             System.out.print("Введите день подписания контракта: ");
-            worker.Day[i] = num.nextInt();
+            worker[i].Day = num.nextInt();
             System.out.print("Введите месяц подписания контракта: ");
-            worker.Month[i] = num.nextInt();
+            worker[i].Month = num.nextInt();
             System.out.print("Введите год подписания контракта: ");
-            worker.Year[i] = num.nextInt();
+            worker[i].Year = num.nextInt();
             System.out.print("Введите срок действия контракта: ");
-            worker.Term[i] = num.nextInt();
+            worker[i].Term = num.nextInt();
             System.out.print("Введите оклад: ");
-            worker.Salary[i] = num.nextInt();
+            worker[i].Salary = num.nextInt();
 
         }
 
         for(int j = 0; j< countworker; j++) {
-            if ((worker.Year[j] == date.getYear() + 1900) && (worker.Month[j] <= date.getMonth() + 1) && (worker.Day[j] <= date.getDate())) {
-                System.out.println("Фамилия: " + worker.Surname[j]);
-                System.out.println("Специальность: " + worker.Position[j]);
-                System.out.println("Дата подписания контракта: " + worker.Day[j] + " " + worker.Month[j] + " " + worker.Year[j]);
-                System.out.println("Срок действия контракта: " + worker.Term[j]);
-                System.out.println("Оклад: " + worker.Salary[j]);
+            if ((worker[j].Year == date.getYear() + 1900) && (worker[j].Month <= date.getMonth() + 1) && (worker[j].Day <= date.getDate())) {
+                System.out.println("Фамилия: " + worker[j].Surname);
+                System.out.println("Специальность: " + worker[j].Position);
+                System.out.println("Дата подписания контракта: " + worker[j].Day + " " + worker[j].Month + " " + worker[j].Year);
+                System.out.println("Срок действия контракта: " + worker[j].Term);
+                System.out.println("Оклад: " + worker[j].Salary);
             }
-            else if ((worker.Year[j] == date.getYear() + 1899) && (worker.Month[j] >= date.getMonth() + 1) && (worker.Day[j] >= date.getDate())) {
-                System.out.println("Фамилия: " + worker.Surname[j]);
-                System.out.println("Специальность: " + worker.Position[j]);
-                System.out.println("Дата подписания контракта: " + worker.Day[j] + " " + worker.Month[j] + " " + worker.Year[j]);
-                System.out.println("Срок действия контракта: " + worker.Term[j]);
-                System.out.println("Оклад: " + worker.Salary[j]);
+            else if ((worker[j].Year == date.getYear() + 1899) && (worker[j] .Month>= date.getMonth() + 1) && (worker[j].Day >= date.getDate())) {
+                System.out.println("Фамилия: " + worker[j].Surname);
+                System.out.println("Специальность: " + worker[j].Position);
+                System.out.println("Дата подписания контракта: " + worker[j].Day + " " + worker[j].Month + " " + worker[j].Year);
+                System.out.println("Срок действия контракта: " + worker[j].Term);
+                System.out.println("Оклад: " + worker[j].Salary);
             }
         }
     }
