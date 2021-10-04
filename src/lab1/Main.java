@@ -11,7 +11,7 @@ public class Main {
         Scanner num = new Scanner(System.in);
         int chislo = 0;
         do {
-            System.out.println("Выберите номер задания :1) Легкий уровень 2) Средний уровень. Если вы хотите выйти введите 0.");
+            System.out.println("Выберите номер задания : 1) Легкий уровень 2) Средний уровень. Если вы хотите выйти введите 0.");
             chislo = num.nextInt();
             switch (chislo) {
                 case 0:
@@ -34,35 +34,30 @@ public class Main {
         Scanner num = new Scanner(System.in);
         Scanner slovo = new Scanner(System.in);
         int count = 0;
-        int countstudent = 0;
+        int countstudents = 0;
         System.out.print("Введите количество студентов: ");
-        countstudent = num.nextInt();
-        Person[] person = new Person[countstudent];
-        for (int i = 0; i < countstudent; i++){
-            person[i] = new Person();
+        countstudents = num.nextInt();
+        Student[] students = new Student[countstudents];
+        for (int i = 0; i < countstudents; i++){
+            students[i] = new Student();
             System.out.print("Введите фамилию: ");
-            person[i].Surname = slovo.nextLine();
+            students[i].setSurname(slovo.nextLine());
             System.out.print("Введите специальность: ");
-            person[i].Speciality = slovo.nextLine();
+            students[i].setSpeciality(slovo.nextLine());
             System.out.print("Введите год поступления: ");
-            person[i].Year = num.nextInt();
-            System.out.print("Введите физику: ");
-            person[i].Physic = num.nextInt();
-            System.out.print("Введите математику: ");
-            person[i].Math = num.nextInt();
-            System.out.print("Введите историю: ");
-            person[i].History = num.nextInt();
+            students[i].setYear(num.nextInt());
+            System.out.print("Введите оценку физику: ");
+            students[i].setPhysic(num.nextInt());
+            System.out.print("Введите оценку математику: ");
+            students[i].setMath(num.nextInt());
+            System.out.print("Введите оценку историю: ");
+            students[i].setHistory(num.nextInt());
         }
 
-        for(int j = 0; j< countstudent; j++) {
-            if (person[j].Year <= gcalendar.get(Calendar.YEAR) - 3) {
+        for(int j = 0; j< countstudents; j++) {
+            if (students[j].getYear() <= gcalendar.get(Calendar.YEAR) - 3) {
                 count++;
-                System.out.println("Фамилия: " + person[j].Surname);
-                System.out.println("Специальность: " + person[j].Speciality);
-                System.out.println("Год поступления: " + person[j].Year);
-                System.out.println("Оценка по физике: " + person[j].Physic);
-                System.out.println("Оценка по математике: " + person[j].Math);
-                System.out.println("Оценка по историе: " + person[j].History);
+                System.out.println(students[j].toString());
             }
         }
         System.out.println("Студентов учашихся на 3 курсе и выше: " + count);
@@ -79,36 +74,28 @@ public class Main {
         for (int i = 0; i < countworker; i++){
             worker[i] = new Worker();
             System.out.print("Введите фамилию работника: ");
-            worker[i].Surname = slovo.nextLine();
+            worker[i].setSurname(slovo.nextLine());
             System.out.print("Введите должность работника: ");
-            worker[i].Position = slovo.nextLine();
+            worker[i].setPosition(slovo.nextLine());
             System.out.print("Введите день подписания контракта: ");
-            worker[i].Day = num.nextInt();
+            worker[i].setDay(num.nextInt());
             System.out.print("Введите месяц подписания контракта: ");
-            worker[i].Month = num.nextInt();
+            worker[i].setMonth(num.nextInt());
             System.out.print("Введите год подписания контракта: ");
-            worker[i].Year = num.nextInt();
+            worker[i].setYear(num.nextInt());
             System.out.print("Введите срок действия контракта: ");
-            worker[i].Term = num.nextInt();
+            worker[i].setTerm(num.nextInt());
             System.out.print("Введите оклад: ");
-            worker[i].Salary = num.nextInt();
+            worker[i].setSalary(num.nextInt());
 
         }
 
         for(int j = 0; j< countworker; j++) {
-            if ((worker[j].Year == date.getYear() + 1900) && (worker[j].Month <= date.getMonth() + 1) && (worker[j].Day <= date.getDate())) {
-                System.out.println("Фамилия: " + worker[j].Surname);
-                System.out.println("Специальность: " + worker[j].Position);
-                System.out.println("Дата подписания контракта: " + worker[j].Day + " " + worker[j].Month + " " + worker[j].Year);
-                System.out.println("Срок действия контракта: " + worker[j].Term);
-                System.out.println("Оклад: " + worker[j].Salary);
+            if ((worker[j].getYear() == date.getYear() + 1900) && (worker[j].getMonth() <= date.getMonth() + 1) && (worker[j].getDay() <= date.getDate())) {
+                System.out.println(worker[j].toString());
             }
-            else if ((worker[j].Year == date.getYear() + 1899) && (worker[j] .Month>= date.getMonth() + 1) && (worker[j].Day >= date.getDate())) {
-                System.out.println("Фамилия: " + worker[j].Surname);
-                System.out.println("Специальность: " + worker[j].Position);
-                System.out.println("Дата подписания контракта: " + worker[j].Day + " " + worker[j].Month + " " + worker[j].Year);
-                System.out.println("Срок действия контракта: " + worker[j].Term);
-                System.out.println("Оклад: " + worker[j].Salary);
+            else if ((worker[j].getYear() == date.getYear() + 1899) && (worker[j].getMonth()>= date.getMonth() + 1) && (worker[j].getDay() >= date.getDate())) {
+                System.out.println(worker[j].toString());
             }
         }
     }
