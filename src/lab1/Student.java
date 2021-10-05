@@ -59,12 +59,12 @@ public class Student {
     @Override
     public String toString() {
         return
-                "Фамилия: " + Surname + "\n" +
-                "Специальность: " + Speciality + "\n" +
-                "Год поступления: " + Year + "\n" +
-                "Оценка по физике: " + Physic + "\n" +
-                "Оценка по математике: " + Math + "\n" +
-                "Оценка по историе: " + History;
+                "Фамилия: " + getSurname() + "\n" +
+                        "Специальность: " + getSpeciality() + "\n" +
+                        "Год поступления: " + getYear() + "\n" +
+                        "Оценка по физике: " + getPhysic() + "\n" +
+                        "Оценка по математике: " + getMath() + "\n" +
+                        "Оценка по историе: " + getHistory();
     }
 }
 

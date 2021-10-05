@@ -69,10 +69,10 @@ public class Worker {
     @Override
     public String toString() {
         return
-                "Фамилия: " + Surname + "\n" +
-                "Специальность: " + Position + "\n" +
-                "Дата подписания контракта: " + Day + Month + Year + "\n" +
-                "Срок действия контракта: " + Term + "\n" +
-                "Оклад: " + Salary;
+                "Фамилия: " + getSurname() + "\n" +
+                "Специальность: " + getPosition() + "\n" +
+                "Дата подписания контракта: " + getDay() + getMonth() + getYear() + "\n" +
+                "Срок действия контракта: " + getTerm() + "\n" +
+                "Оклад: " + getSalary();
     }
 }
